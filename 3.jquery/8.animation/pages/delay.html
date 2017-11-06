@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>延迟特效</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		div {
+			padding: 20px 0 6px 0;
+		}
+		tips {
+			padding: 20px;
+			background-color: #eefbff;
+			font-size: 16px;
+			position: fixed;
+			left: 50%; top: 50%;
+			transform: translate(-50%, -50%);
+			box-shadow: 0 0 0 5px rgba(152, 152, 152, 0.3);
+		}
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>延迟特效</a>
+	</nav>
+	<main id="main">
+		<form name="userInfo">
+			<div>
+				<label>账号：</label>
+				<input type="text">
+			</div>
+			<div>
+				<label>密码：</label>
+				<input type="password">
+			</div>
+			<div>
+				<button type="button" class="signIn">登录</button>
+			</div>
+		</form>
+	</main>
+	<!-- 自定义标签 -->
+	<!--<tips>用户名和密码不能为空！</tips>-->
+	
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		$(".signIn").on("click",function() {
+			var userName = $(":text").val(),
+				userPwd = $(":password").val();
+			if(userName === "" || userPwd === "") {
+			    $("body").append("<tips>用户名和密码不能为空！</tips>");
+				$("tips").delay(2000).fadeOut(600, function() {
+					$(this).remove();
+				});
+		    }
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

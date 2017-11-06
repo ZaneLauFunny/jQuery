@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>自定义工具函数</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>自定义工具函数</a>
+	</nav>
+	<main id="main">
+		<div>[232,423,65,324,6,98,77]</div>
+		<div class="maxVal">
+			当前数组的最大值是：<span></span>
+		</div>
+		<div class="minVal">
+			当前数组的最小值是：<span></span>
+		</div>
+		<button type="button" class="btnGetVal">执行</button>
+	</main>
+
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		// arguments的用法
+		function sum() {
+			var paramLeng = arguments.length;
+			var baseNum = 0;
+			for(var i = 0; i < paramLeng; i++) {
+				baseNum += arguments[i];
+			}
+			return baseNum;
+		}
+		
+		// 对数组求和（“...”的用法）
+		function sumArr(param) {
+			var paramLeng = arguments.length;
+			var baseNum = 0;
+			for(var i = 0; i < paramLeng; i++) {
+				baseNum += arguments[i];
+			}
+			console.log(baseNum);
+			return baseNum;
+		}
+		// 调用
+		//sumArr(...[1,2,3,4,5]);
+		
+		$.extend({
+			// 求最小值
+			min: function(param) {
+				var thisType = $.type(arguments[0]);
+				if(thisType === "number") {
+					// 将参数类似数组转换为真正的数组
+					var parArr = Array.from(arguments);
+					var minVal = Math.min(...parArr);
+					// 如果需要传变量的方法可以写成：
+					//var minVal = Math["min"](...parArr);
+				}
+				else if(thisType === "array") {
+					var minVal = Math.min(...param);	
+				}
+				else {
+					console.error("参数只能为数值和数组");
+				}
+				return minVal;
+			},
+			// 求最大值
+			max: function(param) {
+				var thisType = $.type(arguments[0]);
+				if(thisType === "number") {
+					var parArr = Array.from(arguments);
+					var maxVal = Math.max(...parArr);
+				}
+				else if(thisType === "array") {
+					var maxVal = Math.max(...param);	
+				}
+				else {
+					console.error("参数只能为数值和数组");
+				}
+				return maxVal;
+			}
+		});
+		
+		// 当前页点击执行按钮后的事件
+		$(".btnGetVal").on("click", function() {
+			var testArr = [232,423,65,324,98,77,6];
+			$(".maxVal span").text($.max(testArr));
+			$(".minVal span").text($.min(testArr));
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

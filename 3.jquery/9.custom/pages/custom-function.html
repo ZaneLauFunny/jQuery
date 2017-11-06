@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>自定义方法</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		div.test {
+			width: 460px;
+			padding: 20px;
+			background-color: #efe6d0;
+		}
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>自定义方法</a>
+	</nav>
+	<main id="main">
+		<button type="button" class="btnCenter">元素居中</button>
+		<div class="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam reprehenderit facilis commodi odit, voluptas dolorum ab accusamus perferendis libero dolores fuga, voluptatem architecto eos modi cum ut, pariatur, optio dolorem!</div>
+	</main>
+
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		// 自定义jQuery方法
+		$.fn.extend({
+			// 元素固定定位的居中显示
+			centered: function () {
+				$(this).css({
+					position: "fixed",
+					left: "50%",
+					top: "50%",
+					transform: "translate(-50%, -50%)",
+					zIndex: 100
+				});
+			},
+			// 禁用表单元素
+			disable: function () {
+				$(this).prop("disabled", true).css({
+					backgroundColor: "#eee",
+					cursor: "not-allowed"
+				});
+			}
+		});
+		
+		$(".btnCenter").on("click",function() {
+			// 调用自定义方法
+			$("div.test").centered();
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

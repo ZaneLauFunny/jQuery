@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>章节练习一</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		ul > li {
+			cursor: pointer;
+		}
+		ul > li:active {
+			color: #2396fd;
+		}
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>章节练习一</a>
+	</nav>
+	
+	<main id="main">
+		<ul>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>jQuery</li>
+		</ul>
+		<div>您选择的是：<span></span></div>
+	</main>
+	
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		// 方案一
+		/*$("ul > li").click(function() {
+			var thisText = $(this).text();
+			$("div > span").text(thisText);
+			switch(thisText) {
+				case "HTML":
+					$("div > span").css("color", "#ea9900");
+					break;
+				case "CSS":
+					$("div > span").css("color", "#3088f0");
+					break;
+				case "JavaScript":
+					$("div > span").css("color", "#b6be00");
+					break;
+				case "jQuery":
+					$("div > span").css("color", "#00be3a");
+					break;
+				default:
+					$("div > span").css("color", "#000");
+		    }
+		});*/
+		
+		// 方案二
+		var colorList = ["#ea9900","#3088f0","#b6be00","#00be3a"];
+		$("ul > li").click(function() {
+			var thisText = $(this).text();
+			$("div > span").text(thisText);
+			// 获取当前li的索引值
+			var thisIndex = $(this).index();
+			// 通过索引值去对应“颜色数组”里面的元素项（颜色）
+			$("div > span").css("color", colorList[thisIndex]);
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

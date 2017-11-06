@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>暂停和完成动画</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		div {
+			width: 60px; height: 320px;
+			padding: 20px;
+			background-color: #f7e9cb;
+			border: 1px solid #ddd;
+			line-height: 1.6;
+		}
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>暂停和完成动画</a>
+	</nav>
+	<main id="main">
+		<button type="button" class="run">运行</button>
+		<button type="button" class="stop">暂停</button>
+		<button type="button" class="finish">完成</button>
+		<div class="div1"></div>
+	</main>
+	
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		$.fx.off = false;
+		$(".run").on("click",function() {
+			$(".div1").animate({
+				width: "100%"
+			}, 5000);
+		});
+		// 暂停动画
+		$(".stop").on("click",function() {
+			$(".div1").stop();
+		});
+		// 立即完成正在执行的动画
+		$(".finish").on("click",function() {
+			$(".div1").finish();
+		});
+		$(".div1").fadeIn(1900, function() {
+			$(this).fadeOut(1900, function() {
+				$(this).slideDown(1900, function() {
+					$(this).slideUp(1900);
+				});
+			})
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

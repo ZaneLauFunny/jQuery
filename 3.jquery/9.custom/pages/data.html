@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>自定义数据对象data</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>自定义数据对象data</a>
+	</nav>
+	<main id="main">
+		<div class="test">（见JS部分源码）</div>
+		<ul>
+			<li>
+				<div>1</div>
+			</li>
+			<li>
+				<div>2</div>
+			</li>
+			<li>
+				<div>3</div>
+			</li>
+		</ul>
+	</main>
+	
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		var $test = $(".test");
+		// 设置或者新增属性
+		$test.data("key", "value");
+		// 获取属性名（键名）
+		$test.data("key");
+		// 获取当前元素的整个自定义数据对象
+		$test.data();
+		
+		$("ul > li > div").on("click",function() {
+			console.log("当前元素的索引值：" + $(this).index());
+			console.log("当前元素父级的索引值：" + $(this).parent().index());
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

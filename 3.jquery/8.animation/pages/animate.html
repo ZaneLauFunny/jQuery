@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>动画</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		.div1 {
+			width: 160px; height: 160px;
+			background-color: #4bffdc;
+			border: 1px solid #ddd;
+			/*transition: all 0.6s;*/
+		}
+		.flex1 {
+			width: 100%;
+			margin-top: 200px;
+		}
+		ul > li {
+			padding: 20px 0;
+		}
+		.div2 {
+			width: 640px; height: 120px;
+			background-color: #4bff59;
+			border: 1px solid #ddd;
+			transition: all 1.2s;
+		}
+		.flex2 {
+			transform: rotate(360deg);
+		}
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>动画</a>
+	</nav>
+	<main id="main">
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<ul>
+			<li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li>
+			<li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li><li>1</li>
+		</ul>
+		<button type="button" class="toTop">回到顶部</button>
+	</main>
+	
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		$(".div1").on("click", function() {
+			$(this).animate({
+				width: "100%",
+				marginTop: "+=200px"
+			}, 1600, function() {
+				$(this).text("我要消失了...");
+				$(this).slideUp(1600);
+			});
+		});
+		
+		$(".div2").on("click", function() {
+			// CSS3的变换效果不能对jQuery的动画生效
+			/*$(this).animate({
+				transform: "rotate(360deg)"
+			}, 600);*/
+			$(this).addClass("flex2");
+		});
+		
+		/* 回到顶部 */
+		$(".toTop").on("click", function() {
+			$("html,body").animate({
+				scrollTop: 0
+			}, 600);
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>jQuery each方法</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>jQuery each方法</a>
+	</nav>
+	<main id="main">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</main>
+
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		$("ul li").each(function(index, element) {
+			$(element).text(index + 1);
+		});
+		// 等价于
+		/*$.each($("ul li"), function(index, element) {
+			$(element).text(index + 1);
+		});*/
+	</script>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>淡入淡出效果</title>
+	<link rel="stylesheet" href="../css/common.css">
+	<style>
+		html,body {
+			height: 100%;
+			margin: 0;
+		}
+		body {
+			background: url(../img/bg-1.jpg) center center no-repeat;
+			background-size: cover;
+		}
+		main {
+			display: flex;
+			justify-content: space-around;
+		}
+		div {
+			width: 320px; height: 300px;
+			padding: 20px;
+			background-color: #f7e9cb;
+			border: 1px solid #ddd;
+			line-height: 1.6;
+		}
+	</style>
+</head>
+<body>
+	<nav class="pathNav">
+		<a href="../index.html">首页</a>
+		<a>淡入淡出效果</a>
+	</nav>
+	<main id="main">
+		<section>
+			<button type="button" class="fadeBtn">淡入淡出</button>
+			<div class="div1">落魄三月罢，寻花去东家。谁作送春曲，洛岸悲铜驼。桥南多马客，北山饶古人。客饮杯中酒，驼悲千万春。生世莫徒劳，风吹盘上烛。厌见桃株笑，铜驼夜来哭。</div>
+		</section>
+		<section>
+			<button type="button" class="fade25">25%</button>
+			<button type="button" class="fade50">50%</button>
+			<button type="button" class="fade75">75%</button>
+			<button type="button" class="fade100">100%</button>
+			<div class="div2">落魄三月罢，寻花去东家。谁作送春曲，洛岸悲铜驼。桥南多马客，北山饶古人。客饮杯中酒，驼悲千万春。生世莫徒劳，风吹盘上烛。厌见桃株笑，铜驼夜来哭。</div>
+		</section>
+	</main>
+	
+	<script src="../plugin/jquery.js"></script>
+	<script>
+		/* 显隐 */
+		$(".fadeBtn").on("click",function() {
+			$(".div1").fadeToggle(2000);
+		});
+		
+		/* 设置透明度 */
+		var $div2 = $(".div2");
+		$(".fade25").on("click",function() {
+			$div2.fadeTo(300, 0.25);
+		});
+		$(".fade50").on("click",function() {
+			$div2.fadeTo(300, 0.5);
+		});
+		$(".fade75").on("click",function() {
+			$div2.fadeTo(300, 0.75);
+		});
+		$(".fade100").on("click",function() {
+			$div2.fadeTo(300, 1);
+		});
+	</script>
+</body>
+</html>
+
+
+
+
+
+
